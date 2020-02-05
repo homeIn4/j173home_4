@@ -19,47 +19,60 @@ public class TestCache {
          * 在自己本地的springboot mybatis项目里跑通过没有问题，小组的
          * 项目里面没有配相关的jar包。
          */
-       /* public  void testCache(){
-            Map<String,List<Student>> map= new HashMap<>();
-            List<Student> list= new ArrayList<>();
-            List<Student> list2=null;
-            Student student= new Student();
-            student.setName("杨华1");
-            student.setSex("男");
-            student.setClassNo("56rs班");
-            Student student2= new Student();
-            student2.setName("杨华2");
-            student2.setSex("女");
-            student2.setClassNo("5sfgs班");
-            list.add(student);
-            list.add(student2);
-            map.put("杨华",list);
-            String item="杨华";
-            Iterator<String> iterators = map.keySet().iterator();
-            while (iterators.hasNext()){
-                String ite=iterators.next();
-                if (item.equals(ite)){
-                    list2 = map.get(ite);
-                    break;
-                }
+       /* @Test
+    public  void testCache(){
+        Map<String,List<Student>> map= new HashMap<>();
+        List<Student> list= new ArrayList<>();
+        List<Student> list2=null;
+        Student student= new Student();
+        student.setName("杨华1");
+        student.setSex("男");
+        student.setClassNo("56rs班");
+        Student student2= new Student();
+        student2.setName("杨华2");
+        student2.setSex("女");
+        student2.setClassNo("5sfgs班");
+        list.add(student);
+        list.add(student2);
+        map.put("杨华",list);
+        map.put("张狗",null);
+        String item="张狗";
+        Iterator<String> iterators = map.keySet().iterator();
+        boolean flag=false;
+        while (iterators.hasNext()){
+            String ite=iterators.next();
+            if (item.equals(ite)){
+                 list2 = map.get(ite);
+                 flag=true;
+                 break;
             }
-            if (list2!=null){
-                for (Student sb: list2
+        }
+        while (flag) {
+            if (list2 != null) {
+                for (Student sb : list2
                 ) {
                     System.out.println(sb.toString());
                 }
                 return;
             }
+                System.out.println("没有记录");
+                return;
 
+        }
 
-            QueryWrapper<Student> query= new QueryWrapper<>();
-            query.eq("s_name",item);
-            List<Student> list3 = mapper.selectList(query);
-            for (Student s:list3
-            ) {
-                System.out.println(s.getName()+","+s.getSex()+","+s.getClassNo()+","+s.getGrade());
-            }
+        QueryWrapper<Student> query= new QueryWrapper<>();
+        query.eq("s_name",item);
+        List<Student> list3 = mapper.selectList(query);
+       if (list3.size()==0){
+           map.put(item,null);
+           return;
+       }
 
-        }*/
+        for (Student s:list3
+             ) {
+            System.out.println(s.getName()+","+s.getSex()+","+s.getClassNo()+","+s.getGrade());
+        }
+
+    }*/
     }
 }
