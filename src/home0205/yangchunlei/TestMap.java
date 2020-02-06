@@ -46,5 +46,6 @@ public class TestMap {
         }
         System.out.println("缓存中数据条数:" + mapsReady.size());
         System.out.println("数据库中数据条数:" + mapsDB.size());
+        System.out.println("222");
     }
 }
